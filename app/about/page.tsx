@@ -1,5 +1,5 @@
-import { FaGithub, FaLinkedin, FaStackOverflow } from 'react-icons/fa';
-import { HiCode, HiFilm, HiDesktopComputer, HiLocationMarker } from 'react-icons/hi';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { HiCode, HiBriefcase, HiGlobe, HiLocationMarker } from 'react-icons/hi';
 
 export default function About() {
   return (
@@ -13,13 +13,13 @@ export default function About() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {/* Bio Section */}
         <div className="lg:col-span-2 space-y-4">
-          <p className="text-gray-300 leading-relaxed text-justify">
-            Hello there! Welcome to my web site. Yes, this is another boring web site. 
-            I made it because I am a vain human who has little life out of computers. 
-            This page is about things that I like to do. Because this is a personal web site 
-            you may read a lot the word I. No, that doesn&apos;t mean that I am selfish. I really 
-            care about humanity and I help my neighbour. Now, if you are bored don&apos;t go on 
-            to read the rest of the site, you will be more bored.
+          <p className="text-gray-300 leading-relaxed">
+            UI Engineer with <span className="text-accent font-semibold">3+ years</span> of experience specializing in{' '}
+            <span className="text-white font-medium">React</span>,{' '}
+            <span className="text-white font-medium">Next.js</span>, and{' '}
+            <span className="text-white font-medium">TypeScript</span>. I build fast, scalable, and 
+            aesthetically clean UIs with a focus on developer experience, design systems, and product-first thinking. 
+            Passionate about bridging AI, data, and frontend technologies to deliver impactful digital experiences.
           </p>
 
           {/* What I Do Section */}
@@ -28,15 +28,15 @@ export default function About() {
           </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {/* Free Time */}
+            {/* Current Role */}
             <div className="glass-card p-4">
               <div className="flex items-center gap-3 mb-2">
-                <HiFilm className="text-accent" size={24} />
-                <h3 className="font-semibold text-white">Free Time</h3>
+                <HiBriefcase className="text-accent" size={24} />
+                <h3 className="font-semibold text-white">Current Role</h3>
               </div>
               <p className="text-gray-400 text-sm">
-                At my free time, besides programming I love watching movies and TV shows, 
-                reading books, playing video games and listen to music.
+                UI Engineer at <span className="text-white font-medium">Prevalent AI</span>, Kochi. 
+                Building frontend interfaces for AI-powered exposure management and security data platforms.
               </p>
             </div>
 
@@ -47,20 +47,21 @@ export default function About() {
                 <h3 className="font-semibold text-white">Programming</h3>
               </div>
               <p className="text-gray-400 text-sm">
-                I like building web apps that may be helpful to others. I use PHP, Python 
-                or Java for the backend, Vue for the front-end and React Native for mobile apps.
+                I specialize in React.js, Next.js, Vue.js, and TypeScript for frontend development. 
+                For styling, I use TailwindCSS, SCSS, RadixUI, and ChakraUI. I also work with 
+                Node.js, Express.js, and GraphQL for backend services.
               </p>
             </div>
 
-            {/* Computers */}
+            {/* Languages */}
             <div className="glass-card p-4">
               <div className="flex items-center gap-3 mb-2">
-                <HiDesktopComputer className="text-accent" size={24} />
-                <h3 className="font-semibold text-white">Computers</h3>
+                <HiGlobe className="text-accent" size={24} />
+                <h3 className="font-semibold text-white">Languages</h3>
               </div>
               <p className="text-gray-400 text-sm">
-                <strong>Athena:</strong> This is my main computer. I spent a lot of time with it. 
-                It has 32GB of RAM, an Intel Core i5 processor and runs Windows 11.
+                Fluent in <span className="text-white">English</span>, <span className="text-white">Malayalam</span>, 
+                and <span className="text-white">Tamil</span>.
               </p>
             </div>
 
@@ -71,17 +72,13 @@ export default function About() {
                 <h3 className="font-semibold text-white">Where to find me</h3>
               </div>
               <div className="flex gap-3 mt-2">
-                <a href="https://github.com" target="_blank" rel="noopener noreferrer" 
+                <a href="https://github.com/vipinvmenon" target="_blank" rel="noopener noreferrer" 
                    className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
                   <FaGithub /> GitHub
                 </a>
-                <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer"
+                <a href="https://linkedin.com/in/vipin-menon-v" target="_blank" rel="noopener noreferrer"
                    className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
                   <FaLinkedin /> LinkedIn
-                </a>
-                <a href="https://stackoverflow.com" target="_blank" rel="noopener noreferrer"
-                   className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
-                  <FaStackOverflow /> Stack Overflow
                 </a>
               </div>
             </div>
@@ -92,15 +89,15 @@ export default function About() {
         <div className="space-y-4">
           <div className="glass-card p-4">
             <p className="text-accent text-sm">DOB</p>
-            <p className="text-white">1990/01/15</p>
+            <p className="text-white">24/08/1999</p>
           </div>
           <div className="glass-card p-4">
             <p className="text-accent text-sm">Residence</p>
-            <p className="text-white">New York, USA</p>
+            <p className="text-white">Kochi, India</p>
           </div>
           <div className="glass-card p-4">
             <p className="text-accent text-sm">e-mail</p>
-            <p className="text-white text-sm">johndoe@example.com</p>
+            <p className="text-white text-sm">vipinmenon006@gmail.com</p>
           </div>
         </div>
       </div>

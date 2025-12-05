@@ -1,65 +1,56 @@
 const experiences = [
   {
-    period: 'Nov. 2020 - Today',
-    company: 'Tech Corp',
-    title: 'UI Engineer / Product Developer',
-    description: 'PHP and Python back end developer, Vue front-end for IoT Systems',
+    period: 'Dec 2024 - Present',
+    company: 'Prevalent AI',
+    location: 'Kochi, Kerala, India',
+    title: 'UI Engineer',
+    highlights: [
+      'Developed frontend interface for an AI-powered exposure management platform identifying and prioritizing cyber risks',
+      'Implemented interactive charts, optimized caching, built modular GraphQL-driven components',
+      'Built interfaces for entity resolution and data consistency validation across Security Data Fabric',
+      'Created anomaly detection dashboards reducing manual QA efforts by 40%',
+      'Collaborated with backend and product teams on evolving API schemas and AI-driven workflows',
+    ],
+    stack: ['React.js', 'TypeScript', 'Tailwind', 'Radix UI', 'Zustand', 'GraphQL', 'Apache ECharts', 'Vitest'],
   },
   {
-    period: 'Sept. 2016 - Oct. 2020',
-    company: 'Web Solutions Inc',
-    title: 'UI Engineer / Product Developer',
-    description: 'PHP back end developer for Information Systems',
-  },
-  {
-    period: 'July 2009 - Jan. 2016',
-    company: 'Digital Agency',
-    title: 'IT and Web developer',
-    description: 'IT support, Web development, basic SEO and CCTV configuration',
-  },
-  {
-    period: 'Feb. 2008 - Feb. 2009',
-    company: 'Training Institute',
-    title: 'Tutor',
-    description: 'Linux administration, Microprocessors programming, Databases, Computer networks',
-  },
-  {
-    period: 'Feb. 2007 - July 2007',
-    company: 'IT Solutions Ltd',
-    title: 'Tech Support',
-    description: 'Installation and configuration of computer networking, Linux Servers, Firewalls',
+    period: 'Jun 2022 - Dec 2024',
+    company: 'Prevalent AI',
+    location: 'Kochi, Kerala, India',
+    title: 'Junior UI Engineer',
+    highlights: [
+      'Contributed to a security analytics suite covering entity inventory, asset management, vulnerability analytics',
+      'Developed dynamic data visualizations, responsive layouts, and accessibility improvements',
+      'Designed and implemented configuration tooling for big-data pipelines',
+      'Streamlined workflows reducing manual intervention by 50%',
+      'Built reusable UI utilities, improved app performance via refactoring and code splitting',
+    ],
+    stack: ['React.js', 'TypeScript', 'Bootstrap', 'Zustand', 'HighCharts', 'Jest', 'RTL'],
   },
 ];
 
-const programmingSkills = [
-  { name: 'PHP', level: 95 },
-  { name: 'Python', level: 85 },
-  { name: 'Java', level: 70 },
-];
+const skills = {
+  'Frameworks & Libraries': ['React.js', 'Next.js', 'Vue.js', 'Express.js', 'Node.js'],
+  'Languages': ['JavaScript', 'TypeScript', 'CSS3', 'HTML5'],
+  'Styling': ['TailwindCSS', 'Bootstrap', 'SCSS', 'SASS', 'RadixUI', 'MaterialUI', 'ChakraUI'],
+  'Testing & State': ['Vitest', 'Jest', 'React Testing Library', 'Zustand'],
+  'Data Visualization': ['Apache ECharts', 'HighCharts'],
+  'DevOps & Tools': ['Git', 'GitHub', 'Jenkins', 'Vercel', 'Netlify', 'Docker', 'Postman', 'Jira'],
+};
 
-const webSkills = [
-  { name: 'HTML5 / CSS3', level: 95 },
-  { name: 'Vue', level: 90 },
-  { name: 'JavaScript', level: 88 },
-  { name: 'Bootstrap', level: 85 },
-  { name: 'jQuery', level: 80 },
-];
-
-const databaseSkills = [
-  { name: 'MySQL', level: 90 },
-  { name: 'PostgreSQL', level: 75 },
-  { name: 'MongoDB', level: 60 },
-];
-
-function SkillBar({ name, level }: { name: string; level: number }) {
+function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
   return (
-    <div className="mb-3">
-      <div className="flex justify-between text-sm mb-1">
-        <span className="text-white">{name}</span>
-        <span className="text-gray-400">{level}%</span>
-      </div>
-      <div className="progress-bar h-2">
-        <div className="progress-fill" style={{ width: `${level}%` }} />
+    <div className="mb-5">
+      <h3 className="text-sm font-semibold text-accent mb-2">{title}</h3>
+      <div className="flex flex-wrap gap-2">
+        {skills.map((skill) => (
+          <span 
+            key={skill}
+            className="text-xs px-3 py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10 hover:border-accent/50 transition-smooth"
+          >
+            {skill}
+          </span>
+        ))}
       </div>
     </div>
   );
@@ -81,16 +72,34 @@ export default function Resume() {
             <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gray-700" />
             
             {/* Timeline items */}
-            <div className="space-y-6">
+            <div className="space-y-8">
               {experiences.map((exp, index) => (
                 <div key={index} className="relative pl-8">
                   {/* Timeline dot */}
                   <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-accent border-2 border-black" />
                   
-                  <div className="text-sm text-gray-500 mb-1">{exp.period}</div>
-                  <div className="text-xs text-gray-600 mb-1">{exp.company}</div>
-                  <h3 className="font-semibold text-white mb-1">{exp.title}</h3>
-                  <p className="text-gray-400 text-sm">{exp.description}</p>
+                  <div className="text-sm text-accent mb-1">{exp.period}</div>
+                  <h3 className="font-semibold text-white">{exp.title}</h3>
+                  <div className="text-sm text-gray-400 mb-3">{exp.company} • {exp.location}</div>
+                  
+                  {/* Highlights */}
+                  <ul className="space-y-1.5 mb-3">
+                    {exp.highlights.map((highlight, i) => (
+                      <li key={i} className="text-gray-400 text-sm flex gap-2">
+                        <span className="text-accent mt-1.5">•</span>
+                        <span>{highlight}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  
+                  {/* Tech Stack */}
+                  <div className="flex flex-wrap gap-1.5">
+                    {exp.stack.map((tech) => (
+                      <span key={tech} className="text-xs px-2 py-0.5 rounded bg-accent/20 text-accent-light">
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
                 </div>
               ))}
             </div>
@@ -98,28 +107,11 @@ export default function Resume() {
         </div>
 
         {/* Skills */}
-        <div className="space-y-6">
-          {/* Programming Languages */}
-          <div>
-            <h2 className="text-xl font-bold text-white mb-4">Programming Languages</h2>
-            {programmingSkills.map((skill) => (
-              <SkillBar key={skill.name} name={skill.name} level={skill.level} />
-            ))}
-          </div>
-
-          {/* Web */}
-          <div>
-            <h2 className="text-xl font-bold text-white mb-4">Web</h2>
-            {webSkills.map((skill) => (
-              <SkillBar key={skill.name} name={skill.name} level={skill.level} />
-            ))}
-          </div>
-
-          {/* Databases */}
-          <div>
-            <h2 className="text-xl font-bold text-white mb-4">Databases</h2>
-            {databaseSkills.map((skill) => (
-              <SkillBar key={skill.name} name={skill.name} level={skill.level} />
+        <div>
+          <h2 className="text-xl font-bold text-white mb-6">Skills</h2>
+          <div className="glass-card p-5">
+            {Object.entries(skills).map(([category, skillList]) => (
+              <SkillCategory key={category} title={category} skills={skillList} />
             ))}
           </div>
         </div>

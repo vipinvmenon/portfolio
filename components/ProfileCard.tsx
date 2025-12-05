@@ -10,7 +10,7 @@ export default function ProfileCard() {
       <div className="relative w-40 h-40 mb-6">
         <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-500" />
         <div className="absolute inset-2 rounded-full overflow-hidden bg-gradient-to-br from-accent/50 to-purple-600/50 flex items-center justify-center">
-          <span className="text-5xl font-bold text-white/80">JD</span>
+          <span className="text-5xl font-bold text-white/80">VM</span>
         </div>
       </div>
 
