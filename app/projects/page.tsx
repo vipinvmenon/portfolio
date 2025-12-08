@@ -29,7 +29,7 @@ const projects = [
 
 export default function Projects() {
   return (
-    <div className="space-y-8"
+    <div className="space-y-8">
       {/* Header */}
       <h1 className="text-3xl font-bold text-white">Projects</h1>
 
