@@ -25,7 +25,7 @@ export default function About() {
           {/* What I Do Section */}
           <h2 className="text-xl font-bold text-white mt-8">
             What <span className="text-accent">I Do</span>
-          </h2>
+              </h2>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             {/* Current Role */}
@@ -62,24 +62,24 @@ export default function About() {
               <p className="text-gray-400 text-sm">
                 Fluent in <span className="text-white">English</span>, <span className="text-white">Malayalam</span>, 
                 and <span className="text-white">Tamil</span>.
-              </p>
-            </div>
+            </p>
+          </div>
 
-            {/* Where to Find Me */}
+          {/* Where to Find Me */}
             <div className="glass-card p-4">
-              <div className="flex items-center gap-3 mb-2">
-                <HiLocationMarker className="text-accent" size={24} />
-                <h3 className="font-semibold text-white">Where to find me</h3>
-              </div>
-              <div className="flex gap-3 mt-2">
+            <div className="flex items-center gap-3 mb-2">
+              <HiLocationMarker className="text-accent" size={24} />
+              <h3 className="font-semibold text-white">Where to find me</h3>
+            </div>
+            <div className="flex gap-3 mt-2">
                 <a href="https://github.com/vipinvmenon" target="_blank" rel="noopener noreferrer" 
-                   className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
-                  <FaGithub /> GitHub
-                </a>
+                 className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
+                <FaGithub /> GitHub
+              </a>
                 <a href="https://linkedin.com/in/vipin-menon-v" target="_blank" rel="noopener noreferrer"
-                   className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
-                  <FaLinkedin /> LinkedIn
-                </a>
+                 className="text-accent hover:text-accent-light transition-smooth flex items-center gap-1 text-sm">
+                <FaLinkedin /> LinkedIn
+              </a>
               </div>
             </div>
           </div>

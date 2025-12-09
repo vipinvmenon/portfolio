@@ -1,5 +1,6 @@
 'use client';
 
+import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { 
@@ -28,6 +29,13 @@ export default function Navigation() {
 
   // Find current page index
   const currentIndex = navItems.findIndex(item => item.href === pathname);
+
+  // Prefetch all routes on mount for instant navigation
+  useEffect(() => {
+    navItems.forEach(item => {
+      router.prefetch(item.href);
+    });
+  }, [router]);
 
   const goToPrev = () => {
     const prevIndex = currentIndex > 0 ? currentIndex - 1 : navItems.length - 1;

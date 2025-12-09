@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import ProfileCard from "@/components/ProfileCard";
 import Navigation from "@/components/Navigation";
+import PageTransition from "@/components/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -39,7 +40,7 @@ export default function RootLayout({
             {/* Main Content - Glassmorphic Panel */}
             <main className="glass flex-grow h-full overflow-hidden">
               <div className="h-full overflow-y-auto p-8">
-                {children}
+                <PageTransition>{children}</PageTransition>
               </div>
             </main>
 
