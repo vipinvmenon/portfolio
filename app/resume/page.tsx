@@ -76,7 +76,7 @@ export default function Resume() {
               {experiences.map((exp, index) => (
                 <div key={index} className="relative pl-8">
                   {/* Timeline dot */}
-                  <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-accent border-2 border-black" />
+                  <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-[#0f0f0f] border-2 border-[#6366f1]" />
                   
                   <div className="text-sm text-accent mb-1">{exp.period}</div>
                   <h3 className="font-semibold text-white">{exp.title}</h3>
