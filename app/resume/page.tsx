@@ -40,13 +40,13 @@ const skills = {
 
 function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
   return (
-    <div className="mb-5">
-      <h3 className="text-sm font-semibold text-accent mb-2">{title}</h3>
-      <div className="flex flex-wrap gap-2">
+    <div className="mb-4 last:mb-0">
+      <h3 className="text-xs font-semibold text-accent mb-2">{title}</h3>
+      <div className="flex flex-wrap gap-1.5">
         {skills.map((skill) => (
           <span 
             key={skill}
-            className="text-xs px-3 py-1.5 rounded-full bg-white/5 text-gray-300 border border-white/10 hover:border-accent/50 transition-smooth"
+            className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
           >
             {skill}
           </span>
@@ -58,35 +58,35 @@ function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
 
 export default function Resume() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 pb-8">
       {/* Header */}
-      <h1 className="text-3xl font-bold text-white">Resume</h1>
+      <h1 className="text-2xl font-bold text-white">Resume</h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-2 gap-8">
         {/* Work Experience */}
         <div>
-          <h2 className="text-xl font-bold text-white mb-6">Work Experience</h2>
+          <h2 className="text-lg font-bold text-white mb-4">Work Experience</h2>
           
-          <div className="relative">
+          <div className="relative pl-5">
             {/* Timeline line */}
-            <div className="absolute left-[7px] top-2 bottom-2 w-[2px] bg-gray-700" />
+            <div className="absolute left-[5px] top-[6px] bottom-0 w-[2px] bg-gray-700" />
             
             {/* Timeline items */}
-            <div className="space-y-8">
+            <div className="space-y-6">
               {experiences.map((exp, index) => (
-                <div key={index} className="relative pl-8">
+                <div key={index} className="relative">
                   {/* Timeline dot */}
-                  <div className="absolute left-0 top-2 w-4 h-4 rounded-full bg-[#0f0f0f] border-2 border-[#6366f1]" />
+                  <div className="absolute -left-5 top-[5px] w-[12px] h-[12px] rounded-full bg-[#1e1e1e] border-2 border-accent" />
                   
-                  <div className="text-sm text-accent mb-1">{exp.period}</div>
-                  <h3 className="font-semibold text-white">{exp.title}</h3>
-                  <div className="text-sm text-gray-400 mb-3">{exp.company} • {exp.location}</div>
+                  <div className="text-xs text-accent mb-0.5">{exp.period}</div>
+                  <h3 className="font-semibold text-white text-sm">{exp.title}</h3>
+                  <div className="text-xs text-gray-400 mb-2">{exp.company} • {exp.location}</div>
                   
                   {/* Highlights */}
-                  <ul className="space-y-1.5 mb-3">
+                  <ul className="space-y-1.5 mb-2">
                     {exp.highlights.map((highlight, i) => (
-                      <li key={i} className="text-gray-400 text-sm flex gap-2">
-                        <span className="text-accent mt-1.5">•</span>
+                      <li key={i} className="text-gray-400 text-xs flex gap-1.5 leading-relaxed">
+                        <span className="text-accent">•</span>
                         <span>{highlight}</span>
                       </li>
                     ))}
@@ -95,7 +95,7 @@ export default function Resume() {
                   {/* Tech Stack */}
                   <div className="flex flex-wrap gap-1.5">
                     {exp.stack.map((tech) => (
-                      <span key={tech} className="text-xs px-2 py-0.5 rounded bg-accent/20 text-accent-light">
+                      <span key={tech} className="text-[10px] px-2 py-0.5 rounded bg-accent/20 text-accent-light">
                         {tech}
                       </span>
                     ))}
@@ -108,7 +108,7 @@ export default function Resume() {
 
         {/* Skills */}
         <div>
-          <h2 className="text-xl font-bold text-white mb-6">Skills</h2>
+          <h2 className="text-lg font-bold text-white mb-4">Skills</h2>
           <div className="glass-card p-5">
             {Object.entries(skills).map(([category, skillList]) => (
               <SkillCategory key={category} title={category} skills={skillList} />

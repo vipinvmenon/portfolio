@@ -38,8 +38,8 @@ export default function RootLayout({
             </aside>
 
             {/* Main Content - Glassmorphic Panel */}
-            <main className="glass flex-grow h-full overflow-hidden">
-              <div className="h-full overflow-y-auto p-8">
+            <main className="glass flex-grow h-full overflow-hidden pr-2 scroll-container">
+              <div className="h-full overflow-y-auto p-8 pr-6 pb-12 custom-scrollbar">
                 <PageTransition>{children}</PageTransition>
               </div>
             </main>
