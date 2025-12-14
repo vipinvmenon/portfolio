@@ -19,6 +19,9 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Portfolio | Vipin Menon",
   description: "Personal portfolio website showcasing my work and skills",
+  icons: {
+    icon: '/profile.png',
+  },
 };
 
 export default function RootLayout({

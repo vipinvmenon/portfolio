@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useRef, useEffect } from 'react';
+import Image from 'next/image';
 import { FaGithub, FaLinkedin } from 'react-icons/fa';
 import { FaXTwitter } from 'react-icons/fa6';
 
@@ -51,8 +52,15 @@ export default function ProfileCard() {
       {/* Profile Photo */}
       <div className="relative w-40 h-40 mb-6">
         <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-500" />
-        <div className="absolute inset-2 rounded-full overflow-hidden bg-gradient-to-br from-accent/50 to-purple-600/50 flex items-center justify-center">
-          <span className="text-5xl font-bold text-white/80">VM</span>
+        <div className="absolute inset-2 rounded-full overflow-hidden">
+          <Image
+            src="/profile.png"
+            alt="Vipin Menon"
+            fill
+            className="object-cover object-center"
+            sizes="160px"
+            priority
+          />
         </div>
       </div>
 
