@@ -1,7 +1,7 @@
 'use client';
 
-import { FaGithub, FaLinkedin, FaFacebook } from 'react-icons/fa';
-import { SiBluesky } from 'react-icons/si';
+import { FaGithub, FaLinkedin } from 'react-icons/fa';
+import { FaXTwitter } from 'react-icons/fa6';
 
 export default function ProfileCard() {
   return (
@@ -16,7 +16,7 @@ export default function ProfileCard() {
 
       {/* Name & Title */}
       <h1 className="text-2xl font-bold text-white mb-1">Vipin Menon</h1>
-      <p className="text-gray-400 text-sm mb-6">UI Engineer / Product Developer</p>
+      <p className="text-gray-400 text-sm mb-6">UI Engineer / Product Developer</p> 
 
       {/* Social Links */}
       <div className="flex gap-4 mb-8">
@@ -37,20 +37,12 @@ export default function ProfileCard() {
           <FaLinkedin size={20} />
         </a>
         <a
-          href="https://bsky.app"
+          href="https://x.com/_vipinmenon"
           target="_blank"
           rel="noopener noreferrer"
           className="text-gray-400 hover:text-white transition-smooth"
         >
-          <SiBluesky size={20} />
-        </a>
-        <a
-          href="https://facebook.com"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-smooth"
-        >
-          <FaFacebook size={20} />
+          <FaXTwitter size={20} />
         </a>
       </div>
 

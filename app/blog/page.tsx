@@ -1,106 +1,112 @@
-import Link from 'next/link';
+import { HiExternalLink } from 'react-icons/hi';
 
 const blogPosts = [
   {
     id: 1,
-    title: 'Computer Science Series #1: Halt and Catch Fire',
-    date: '30 Nov. 2025',
-    category: 'computer science series',
-    excerpt: 'A look at the iconic TV show that captures the spirit of the personal computer revolution.',
-    image: '/blog/halt-catch-fire.jpg',
+    title: 'The Type of AI Every Frontend Developer Should Refuse to Use (And Why)',
+    date: 'November 2, 2025',
+    category: 'AI & Security',
+    excerpt: 'Let me be blunt: 45% of AI-generated code contains security vulnerabilities. Not syntax errors. Not logic bugs. Real vulnerabilities—the kind that can compromise your app, your company, and your career.',
+    url: 'https://www.linkedin.com/pulse/type-ai-every-frontend-developer-should-refuse-use-why-vipin-menon-fl6nc/?trackingId=6d8lhXkvS9W6lfs4OrmnHQ%3D%3D',
   },
   {
     id: 2,
-    title: 'Sorting Algorithms #4: Quick Sort',
-    date: '23 Nov. 2025',
-    category: 'sorting algorithms',
-    excerpt: 'Deep dive into Quick Sort algorithm, its implementation and performance analysis.',
-    image: '/blog/quicksort.jpg',
-  },
-  {
-    id: 3,
-    title: 'Building a REST API with Laravel',
-    date: '20 Nov. 2025',
-    category: 'misc',
-    excerpt: 'Step by step guide to building a RESTful API using Laravel framework.',
-    image: '/blog/laravel.jpg',
-  },
-  {
-    id: 4,
-    title: 'Getting Started with Linux',
-    date: '16 Nov. 2025',
-    category: 'misc',
-    excerpt: 'A beginner-friendly introduction to the Linux operating system.',
-    image: '/blog/linux.jpg',
-  },
-  {
-    id: 5,
-    title: 'Sorting Algorithms #3: Merge Sort',
-    date: '10 Nov. 2025',
-    category: 'sorting algorithms',
-    excerpt: 'Understanding Merge Sort and its divide-and-conquer approach.',
-    image: '/blog/mergesort.jpg',
-  },
-  {
-    id: 6,
-    title: 'Web Development Best Practices',
-    date: '5 Nov. 2025',
-    category: 'misc',
-    excerpt: 'Essential practices every web developer should follow for clean, maintainable code.',
-    image: '/blog/webdev.jpg',
+    title: 'Why UI Engineers Need to Understand Data—Even in Security-Heavy Domains',
+    date: 'June 10, 2025',
+    category: 'UI Engineering',
+    excerpt: 'As UI engineers, we often focus on the essentials: design systems, component architecture, performance, and accessibility. But in domains where security and data are core to the product, stopping there simply isn\'t enough.',
+    url: 'https://www.linkedin.com/pulse/why-ui-engineers-need-understand-dataeven-domains-vipin-menon-lqpdc/?trackingId=1rZa8FzCSrersajJS1%2FdEA%3D%3D',
   },
 ];
 
 const categoryColors: Record<string, string> = {
-  'computer science series': 'bg-green-500/20 text-green-400 border-green-500/30',
-  'sorting algorithms': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
-  'misc': 'bg-gray-500/20 text-gray-400 border-gray-500/30',
+  'AI & Security': 'bg-red-500/20 text-red-400 border-red-500/30',
+  'UI Engineering': 'bg-blue-500/20 text-blue-400 border-blue-500/30',
 };
-
+  
 export default function Blog() {
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 h-full flex flex-col">
       {/* Header */}
       <div className="flex justify-between items-center">
         <h1 className="text-3xl font-bold text-white">Blog</h1>
-        <Link href="/blog/archive" className="text-accent hover:text-accent-light transition-smooth text-sm">
-          Archive
-        </Link>
+        <a 
+          href="https://www.linkedin.com/in/vipinmenon/recent-activity/articles/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="px-4 py-2 border border-gray-500 rounded-full text-white text-sm hover:bg-white/10 transition-smooth flex items-center gap-1.5"
+        >
+          View on LinkedIn
+          <HiExternalLink className="w-3.5 h-3.5" />  
+        </a>
       </div>
 
       {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
         {blogPosts.map((post) => (
-          <article 
-            key={post.id} 
-            className="glass-card overflow-hidden group hover-glow transition-smooth cursor-pointer"
+          <a 
+            key={post.id}
+            href={post.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block"
           >
-            {/* Post Image */}
-            <div className="h-44 bg-gradient-to-br from-gray-700 to-gray-800 relative overflow-hidden">
-              {/* Category Badge */}
-              <span className={`
-                absolute top-3 left-3 text-xs px-2 py-1 rounded border
-                ${categoryColors[post.category] || categoryColors['misc']}
-              `}>
-                {post.category}
-              </span>
-              
-              {/* Placeholder gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent" />
-            </div>
+            <article 
+              className="glass-card overflow-hidden group hover-glow transition-smooth cursor-pointer h-full"
+            >
+              {/* Post Image */}
+              <div className="h-48 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 relative overflow-hidden">
+                {/* Category Badge */}
+                <span className={`
+                  absolute top-3 left-3 text-xs px-2.5 py-1.5 rounded-xl border z-10
+                  ${categoryColors[post.category] || 'bg-gray-500/20 text-gray-400 border-gray-500/30'}
+                `}>
+                  {post.category}
+                </span>
+                
+                {/* External Link Icon */}
+                <div className="absolute top-3 right-3 text-white/50 group-hover:text-accent transition-smooth z-10">
+                  <HiExternalLink className="w-5 h-5" />
+                </div>
 
-            {/* Post Info */}
-            <div className="p-4">
-              <p className="text-gray-500 text-xs mb-2">{post.date}</p>
-              <h3 className="font-semibold text-white mb-2 group-hover:text-accent transition-smooth">
-                {post.title}
-              </h3>
-              <p className="text-gray-400 text-sm line-clamp-2">
-                {post.excerpt}
-              </p>
-            </div>
-          </article>
+                {/* Decorative elements */}
+                <div className="absolute inset-0 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-smooth">
+                  <div className="text-7xl font-bold text-white/10">{'</>'}</div>
+                </div>
+                
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+              </div>
+
+              {/* Post Info */}
+              <div className="p-5">
+                <p className="text-gray-500 text-xs mb-2">{post.date}</p>
+                <h3 className="font-semibold text-white text-base mb-3 group-hover:text-accent transition-smooth leading-snug">
+                  {post.title}
+                </h3>
+                <p className="text-gray-400 text-sm leading-relaxed line-clamp-3">
+                  {post.excerpt}
+                </p>
+              </div>
+            </article>
+          </a>
         ))}
+      </div>
+
+      {/* LinkedIn CTA */}
+      <div className="glass-card p-5 text-center">
+        <p className="text-gray-400 mb-3 text-sm">
+          I publish articles on LinkedIn about UI Engineering, Product Strategy & More...
+        </p>
+        <a 
+          href="https://www.linkedin.com/in/vipinmenon/" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-1.5 text-gray-300 hover:text-white transition-smooth text-sm group"
+        >
+          Follow me on LinkedIn for more
+          <HiExternalLink className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-smooth" />
+        </a>
       </div>
     </div>
   );

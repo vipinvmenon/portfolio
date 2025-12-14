@@ -4,6 +4,7 @@ import "./globals.css";
 import ProfileCard from "@/components/ProfileCard";
 import Navigation from "@/components/Navigation";
 import PageTransition from "@/components/PageTransition";
+import ColorBends from "@/components/ColorBends";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -30,7 +31,23 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="min-h-screen flex items-center justify-center p-8">
+        {/* ColorBends Background */}
+        <div className="fixed inset-0 z-0">
+          <ColorBends
+            colors={["#ff5c7a", "#8a5cff", "#00ffd1"]}
+            rotation={30}
+            speed={0.3}
+            scale={1.2}
+            frequency={1.4}
+            warpStrength={1.2}
+            mouseInfluence={1.2}
+            parallax={0.6}
+            noise={0}
+            transparent={false}
+          />
+        </div>
+
+        <div className="min-h-screen flex items-center justify-center p-8 relative z-10">
           <div className="flex gap-6 items-stretch max-w-7xl w-full h-[700px]">
             {/* Profile Sidebar */}
             <aside className="flex-shrink-0 h-full">

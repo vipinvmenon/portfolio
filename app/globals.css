@@ -16,8 +16,14 @@
   --font-mono: var(--font-geist-mono);
 }
 
+html,
 body {
-  background: var(--background);
+  background: #000000;
+  margin: 0;
+  padding: 0;
+}
+
+body {
   color: var(--foreground);
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   min-height: 100vh;

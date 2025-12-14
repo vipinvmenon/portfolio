@@ -58,13 +58,13 @@ export default function Contact() {
   };
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6 h-full flex flex-col">
       {/* Header */}
       <h1 className="text-3xl font-bold text-white">Contact</h1>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1">
         {/* Contact Links */}
-        <div className="space-y-4">
+        <div className="grid grid-cols-1 gap-3 grid-rows-4">
           {contactLinks.map((link, index) => {
             const Icon = link.icon;
             return (
@@ -73,7 +73,7 @@ export default function Contact() {
                 href={link.href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="glass-card p-4 flex flex-col items-center justify-center hover-glow transition-smooth block"
+                className="glass-card flex flex-col items-center justify-center hover-glow transition-smooth"
               >
                 <Icon className="text-accent mb-2" size={28} />
                 <span className="text-accent text-sm">{link.label}</span>
@@ -83,25 +83,25 @@ export default function Contact() {
         </div>
 
         {/* Contact Form */}
-        <div>
+        <div className="flex flex-col">
           <h2 className="text-xl font-bold text-white mb-4">
             How Can I <span className="text-accent">Help You?</span>
           </h2>
 
-          <form ref={formRef} onSubmit={handleSubmit} className="space-y-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <form ref={formRef} onSubmit={handleSubmit} className="space-y-3 flex-1 flex flex-col">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
               <input
                 type="text"
                 name="from_name"
                 placeholder="Full Name"
-                className="glass-card px-4 py-3 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
+                className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
                 required
               />
               <input
                 type="email"
                 name="from_email"
                 placeholder="Email Address"
-                className="glass-card px-4 py-3 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
+                className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
                 required
               />
             </div>
@@ -110,24 +110,24 @@ export default function Contact() {
               type="text"
               name="subject"
               placeholder="Subject"
-              className="glass-card px-4 py-3 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
+              className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
               required
             />
 
             <textarea
               name="message"
               placeholder="Message"
-              rows={5}
-              className="glass-card px-4 py-3 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg resize-none"
+              rows={4}
+              className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg resize-none flex-1"
               required
             />
 
             <button
               type="submit"
               disabled={loading}
-              className="px-8 py-3 bg-accent hover:bg-accent-light text-white rounded-full transition-smooth font-medium disabled:opacity-50 disabled:cursor-not-allowed"
+              className="px-8 py-3 border border-gray-500 rounded-full text-white text-sm hover:bg-white/10 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Sending...' : 'Send message'}
+              {loading ? 'Sending...' : 'Send Message'}
             </button>
 
             {/* Status Messages */}

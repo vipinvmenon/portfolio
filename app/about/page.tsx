@@ -1,4 +1,4 @@
-import { HiCode, HiBriefcase, HiGlobe, HiLocationMarker } from 'react-icons/hi';
+import { HiCode, HiBriefcase, HiGlobe, HiUser } from 'react-icons/hi';
 
 export default function About() {
   return (
@@ -30,7 +30,7 @@ export default function About() {
         {/* Current Role */}
         <div className="glass-card p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-3">
-            <HiBriefcase className="text-accent" size={20} />
+            <HiBriefcase className="text-accent" size={16} />
             <h3 className="font-semibold text-white text-sm">Current Role</h3>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">
@@ -42,7 +42,7 @@ export default function About() {
         {/* Programming */}
         <div className="glass-card p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-3">
-            <HiCode className="text-accent" size={20} />
+            <HiCode className="text-accent" size={16} />
             <h3 className="font-semibold text-white text-sm">Programming</h3>
           </div>
           <p className="text-gray-400 text-sm leading-relaxed">
@@ -55,7 +55,7 @@ export default function About() {
         {/* Languages */}
         <div className="glass-card p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-3">
-            <HiGlobe className="text-accent" size={20} />
+            <HiGlobe className="text-accent" size={16} />
             <h3 className="font-semibold text-white text-sm">Languages</h3>
           </div>
           <ul className="text-sm space-y-2">
@@ -80,7 +80,7 @@ export default function About() {
         {/* Personal Info */}
         <div className="glass-card p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-3">
-            <HiLocationMarker className="text-accent" size={20} />
+            <HiUser className="text-accent" size={16} />
             <h3 className="font-semibold text-white text-sm">Personal Info</h3>
           </div>
           <div className="space-y-3 text-sm">
