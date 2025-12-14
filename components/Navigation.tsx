@@ -4,24 +4,11 @@ import { useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
 import { 
-  HiHome, 
-  HiUser, 
-  HiAcademicCap, 
-  HiBriefcase, 
-  HiNewspaper, 
-  HiMail,
   HiChevronRight,
   HiChevronLeft
 } from 'react-icons/hi';
-
-const navItems = [
-  { href: '/', icon: HiHome, label: 'Home' },
-  { href: '/about', icon: HiUser, label: 'About' },
-  { href: '/resume', icon: HiAcademicCap, label: 'Resume' },
-  { href: '/projects', icon: HiBriefcase, label: 'Projects' },
-  { href: '/blog', icon: HiNewspaper, label: 'Blog' },
-  { href: '/contact', icon: HiMail, label: 'Contact' },
-];
+import GlareHover from './GlareHover';
+import { navItems } from '@/utils/navigation';
 
 export default function Navigation() {
   const pathname = usePathname();
@@ -66,7 +53,6 @@ export default function Navigation() {
                   : 'text-gray-400 hover:text-white hover:bg-white/5'
                 }
               `}
-              title={item.label}
             >
               <Icon size={22} />
               
@@ -86,20 +72,48 @@ export default function Navigation() {
 
       {/* Arrow Navigation */}
       <div className="glass-nav py-3 px-2 flex flex-col gap-1">
-        <button
-          onClick={goToNext}
-          className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
-          title="Next"
+        <GlareHover
+          width="auto"
+          height="auto"
+          background="transparent"
+          borderRadius="9999px"
+          borderColor="transparent"
+          glareColor="#ffffff"
+          glareOpacity={0.3}
+          glareAngle={-30}
+          glareSize={300}
+          transitionDuration={800}
+          playOnce={false}
         >
-          <HiChevronRight size={22} />
-        </button>
-        <button
-          onClick={goToPrev}
-          className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
-          title="Previous"
+          <button
+            onClick={goToNext}
+            className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
+            title="Next"
+          >
+            <HiChevronRight size={22} />
+          </button>
+        </GlareHover>
+        <GlareHover
+          width="auto"
+          height="auto"
+          background="transparent"
+          borderRadius="9999px"
+          borderColor="transparent"
+          glareColor="#ffffff"
+          glareOpacity={0.3}
+          glareAngle={-30}
+          glareSize={300}
+          transitionDuration={800}
+          playOnce={false}
         >
-          <HiChevronLeft size={22} />
-        </button>
+          <button
+            onClick={goToPrev}
+            className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
+            title="Previous"
+          >
+            <HiChevronLeft size={22} />
+          </button>
+        </GlareHover>
       </div>
     </div>
   );

@@ -4,6 +4,8 @@ import { useRef, useState } from 'react';
 import { HiMail } from 'react-icons/hi';
 import { FaLinkedin, FaGithub, FaXTwitter } from 'react-icons/fa6';
 import emailjs from '@emailjs/browser';
+import GlareHover from '@/components/GlareHover';
+import { getPageIcon } from '@/utils/navigation';
 
 const contactLinks = [
   {
@@ -57,10 +59,15 @@ export default function Contact() {
     }
   };
 
+  const PageIcon = getPageIcon('/contact');
+  
   return (
     <div className="space-y-6 h-full flex flex-col">
       {/* Header */}
-      <h1 className="text-3xl font-bold text-white">Contact</h1>
+      <h1 className="text-3xl font-bold text-white flex items-center gap-3">
+        {PageIcon && <PageIcon className="text-accent" size={32} />}
+        Contact
+      </h1>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 flex-1">
         {/* Contact Links */}
@@ -94,23 +101,25 @@ export default function Contact() {
                 type="text"
                 name="from_name"
                 placeholder="Full Name"
-                className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
+                autoComplete="name"
+                className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-[rgba(255,255,255,0.08)] rounded-lg"
                 required
               />
               <input
                 type="email"
                 name="from_email"
                 placeholder="Email Address"
-                className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
+                autoComplete="email"
+                className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-[rgba(255,255,255,0.08)] rounded-lg"
                 required
               />
             </div>
 
             <input
               type="text"
-              name="subject"
+              name="subject"  
               placeholder="Subject"
-              className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg"
+              className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-[rgba(255,255,255,0.08)] rounded-lg"
               required
             />
 
@@ -118,26 +127,41 @@ export default function Contact() {
               name="message"
               placeholder="Message"
               rows={4}
-              className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-1 focus:ring-accent rounded-lg resize-none flex-1"
+              className="glass-card px-4 py-2.5 w-full bg-transparent text-white placeholder-gray-500 focus:outline-none focus:ring-0 focus:border-[rgba(255,255,255,0.08)] rounded-lg resize-none flex-1"
               required
             />
 
-            <button
-              type="submit"
+            <GlareHover
+              width="100%"
+              height="auto"
+              background="transparent"
+              borderRadius="9999px"
+              borderColor="transparent"
+              glareColor="#ffffff"
+              glareOpacity={0.3}
+              glareAngle={-30}
+              glareSize={300}
+              transitionDuration={800}
+              playOnce={false}
               disabled={loading}
-              className="px-8 py-3 border border-gray-500 rounded-full text-white text-sm hover:bg-white/10 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {loading ? 'Sending...' : 'Send Message'}
-            </button>
+              <button
+                type="submit"
+                disabled={loading}
+                className="w-full px-8 py-3 border border-gray-500 cursor-pointer rounded-full text-white text-sm hover:bg-white/10 transition-smooth disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {loading ? 'Sending...' : 'Send Message'}
+              </button>
+            </GlareHover>
 
             {/* Status Messages */}
             {status === 'success' && (
-              <p className="text-green-400 text-sm">
+              <p className="text-green-400 text-center text-sm">
                 ✓ Message sent successfully! I&apos;ll get back to you soon.
               </p>
-            )}
+            )}  
             {status === 'error' && (
-              <p className="text-red-400 text-sm">
+              <p className="text-red-400 text-center text-sm">
                 ✗ Failed to send message. Please try again or email me directly.
               </p>
             )}

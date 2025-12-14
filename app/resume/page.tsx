@@ -1,3 +1,5 @@
+import { getPageIcon } from '@/utils/navigation';
+
 const experiences = [
   {
     period: 'Dec 2024 - Present',
@@ -57,10 +59,15 @@ function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
 }
 
 export default function Resume() {
+  const PageIcon = getPageIcon('/resume');
+  
   return (
     <div className="space-y-6 pb-8">
       {/* Header */}
-      <h1 className="text-2xl font-bold text-white">Resume</h1>
+      <h1 className="text-2xl font-bold text-white flex items-center gap-3">
+        {PageIcon && <PageIcon className="text-accent" size={28} />}
+        Resume
+      </h1>
 
       <div className="grid grid-cols-2 gap-8">
         {/* Work Experience */}

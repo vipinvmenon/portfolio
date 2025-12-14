@@ -1,10 +1,14 @@
 import { HiCode, HiBriefcase, HiGlobe, HiUser } from 'react-icons/hi';
+import { getPageIcon } from '@/utils/navigation';
 
 export default function About() {
+  const PageIcon = getPageIcon('/about');
+  
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <h1 className="text-2xl font-bold text-white mb-5">
+      <h1 className="text-2xl font-bold text-white mb-5 flex items-center gap-3">
+        {PageIcon && <PageIcon className="text-accent" size={28} />}
         About <span className="text-accent">Me</span>
       </h1>
 
