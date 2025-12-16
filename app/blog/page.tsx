@@ -34,11 +34,11 @@ export default function Blog() {
   const PageIcon = getPageIcon('/blog');
   
   return (
-    <div className="space-y-6 h-full flex flex-col">
+    <div className="space-y-4 sm:space-y-6 h-full flex flex-col">
       {/* Header */}
-      <div className="flex justify-between items-center">
-        <h1 className="text-3xl font-bold text-white flex items-center gap-3">
-          {PageIcon && <PageIcon className="text-accent" size={32} />}
+      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3 sm:gap-0">
+        <h1 className="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2 sm:gap-3">
+          {PageIcon && <PageIcon className="text-accent" size={28} />}
           Blog
         </h1>
         <GlareHover
@@ -58,16 +58,16 @@ export default function Blog() {
             href="https://www.linkedin.com/in/vipinmenon/recent-activity/articles/" 
             target="_blank" 
             rel="noopener noreferrer"
-            className="px-4 py-2 border border-gray-500 rounded-full text-white text-sm hover:bg-white/10 transition-smooth flex items-center gap-1.5"
+            className="px-3 sm:px-4 py-1.5 sm:py-2 border border-gray-500 rounded-full text-white text-xs sm:text-sm hover:bg-white/10 active:bg-white/10 transition-smooth flex items-center gap-1.5 touch-manipulation"
           >
             View on LinkedIn
-            <HiExternalLink className="w-3.5 h-3.5" />  
+            <HiExternalLink className="w-3 sm:w-3.5 h-3 sm:h-3.5" />  
           </a>
         </GlareHover>
       </div>
 
       {/* Blog Posts Grid */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 flex-1">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6 flex-1">
         {blogPosts.map((post) => (
           <a 
             key={post.id}
@@ -80,7 +80,7 @@ export default function Blog() {
               className="glass-card overflow-hidden group hover-glow transition-smooth cursor-pointer h-full"
             >
               {/* Post Image */}
-              <div className="h-48 relative overflow-hidden rounded-t-[16px] -mx-[1px] -mt-[1px] w-[calc(100%+2px)]">
+              <div className="h-40 sm:h-48 relative overflow-hidden rounded-t-[16px] -mx-[1px] -mt-[1px] w-[calc(100%+2px)]">
                 {post.image ? (
                   <Image
                     src={post.image}
@@ -93,23 +93,23 @@ export default function Blog() {
                   <>
                     {/* Decorative elements - fallback when no image */}
                     <div className="absolute inset-0 bg-gradient-to-br from-slate-700 via-slate-800 to-slate-900 flex items-center justify-center opacity-20 group-hover:opacity-30 transition-smooth rounded-t-[16px]">
-                      <div className="text-7xl font-bold text-white/10">{'</>'}</div>
+                      <div className="text-5xl sm:text-7xl font-bold text-white/10">{'</>'}</div>
                     </div>
                   </>
                 )}
                 
                 {/* External Link Icon */}
-                <div className="absolute top-3 right-3 text-white/50 group-hover:text-accent transition-smooth z-10">
-                  <HiExternalLink className="w-5 h-5" />
+                <div className="absolute top-2 sm:top-3 right-2 sm:right-3 text-white/50 group-hover:text-accent transition-smooth z-10">
+                  <HiExternalLink className="w-4 sm:w-5 h-4 sm:h-5" />
                 </div>
               </div>
 
               {/* Post Info */}
-              <div className="p-5 flex-1 flex flex-col">
-                <h3 className="font-semibold text-white text-base mb-3 group-hover:text-accent transition-smooth leading-snug">
+              <div className="p-3 sm:p-5 flex-1 flex flex-col">
+                <h3 className="font-semibold text-white text-sm sm:text-base mb-2 sm:mb-3 group-hover:text-accent transition-smooth leading-snug">
                   {post.title}
                 </h3>
-                <p className="text-gray-400 text-sm leading-relaxed line-clamp-6 flex-1">
+                <p className="text-gray-400 text-xs sm:text-sm leading-relaxed line-clamp-4 sm:line-clamp-6 flex-1">
                   {post.excerpt}
                 </p>
               </div>
@@ -119,15 +119,15 @@ export default function Blog() {
       </div>
 
       {/* LinkedIn CTA */}
-      <div className="glass-card p-5 text-center">
-        <p className="text-gray-400 mb-3 text-sm">
+      <div className="glass-card p-3 sm:p-5 text-center">
+        <p className="text-gray-400 mb-2 sm:mb-3 text-xs sm:text-sm">
           I publish articles on LinkedIn about UI Engineering, Product Strategy & More...
         </p>
         <a 
           href="https://www.linkedin.com/in/vipin-menon-v/" 
           target="_blank" 
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1.5 hover:text-white transition-smooth text-sm group"
+          className="inline-flex items-center gap-1.5 hover:text-white transition-smooth text-xs sm:text-sm group touch-manipulation"
         >
           <ShinyText 
             text="Follow me on LinkedIn for more" 
@@ -135,7 +135,7 @@ export default function Blog() {
             speed={3} 
             className="text-gray-300" 
           />
-          <HiExternalLink className="w-3.5 h-3.5 opacity-50 group-hover:opacity-100 transition-smooth" />
+          <HiExternalLink className="w-3 sm:w-3.5 h-3 sm:h-3.5 opacity-50 group-hover:opacity-100 transition-smooth" />
         </a>
       </div>
     </div>

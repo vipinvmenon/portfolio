@@ -43,14 +43,14 @@ export default function ProfileCard() {
   return (
     <div
       ref={cardRef}
-      className="glass-card p-8 flex flex-col items-center w-[320px] h-full transition-transform duration-300 ease-out"
+      className="glass-card p-4 sm:p-6 md:p-8 flex flex-col items-center w-full md:w-[280px] lg:w-[320px] lg:h-full transition-transform duration-300 ease-out"
       style={{
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transformStyle: 'preserve-3d',
       }}
     >
       {/* Profile Photo */}
-      <div className="relative w-40 h-40 mb-6">
+      <div className="relative w-32 h-32 sm:w-40 sm:h-40 mb-4 sm:mb-6">
         <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-500" />
         <div className="absolute inset-2 rounded-full overflow-hidden">
           <Image
@@ -58,23 +58,24 @@ export default function ProfileCard() {
             alt="Vipin Menon"
             fill
             className="object-cover object-center"
-            sizes="160px"
+            sizes="(max-width: 640px) 128px, 160px"
             priority
           />
         </div>
       </div>
 
       {/* Name & Title */}
-      <h1 className="text-2xl font-bold text-white mb-1">Vipin Menon</h1>
-      <p className="text-gray-400 text-sm mb-6">UI Engineer / Product Developer</p> 
+      <h1 className="text-xl sm:text-2xl font-bold text-white mb-1">Vipin Menon</h1>
+      <p className="text-gray-400 text-xs sm:text-sm mb-4 sm:mb-6 text-center">UI Engineer / Product Developer</p> 
 
       {/* Social Links */}
-      <div className="flex gap-4 mb-8">
+      <div className="flex gap-4 mb-6 sm:mb-8">
         <a
           href="https://github.com/vipinvmenon"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-smooth"
+          className="text-gray-400 hover:text-white active:text-white transition-smooth p-2 -m-2 touch-manipulation"
+          aria-label="GitHub"
         >
           <FaGithub size={20} />
         </a>
@@ -82,7 +83,8 @@ export default function ProfileCard() {
           href="https://www.linkedin.com/in/vipin-menon-v/"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-smooth"
+          className="text-gray-400 hover:text-white active:text-white transition-smooth p-2 -m-2 touch-manipulation"
+          aria-label="LinkedIn"
         >
           <FaLinkedin size={20} />
         </a>
@@ -90,7 +92,8 @@ export default function ProfileCard() {
           href="https://x.com/_vipinmenon"
           target="_blank"
           rel="noopener noreferrer"
-          className="text-gray-400 hover:text-white transition-smooth"
+          className="text-gray-400 hover:text-white active:text-white transition-smooth p-2 -m-2 touch-manipulation"
+          aria-label="X (Twitter)"
         >
           <FaXTwitter size={20} />
         </a>
@@ -100,16 +103,16 @@ export default function ProfileCard() {
       <a
         href="/cv.pdf"
         download="Vipin_Menon_CV.pdf"
-        className="px-8 py-3 border border-gray-500 rounded-full text-white text-sm hover:bg-white/10 transition-smooth"
+        className="px-6 sm:px-8 py-2.5 sm:py-3 border border-gray-500 rounded-full text-white text-xs sm:text-sm hover:bg-white/10 active:bg-white/10 transition-smooth touch-manipulation text-center"
       >
         Download CV
       </a>
 
       {/* Spacer to push footer down */}
-      <div className="flex-grow" />
+      <div className="flex-grow hidden lg:block" />
 
       {/* Footer */}
-      <p className="text-gray-500 text-xs mt-8">
+      <p className="hidden lg:block text-gray-500 text-xs mt-4 sm:mt-6 lg:mt-8">
         © {new Date().getFullYear()} Vipin Menon
       </p>
     </div>

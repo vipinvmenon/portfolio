@@ -42,13 +42,13 @@ const skills = {
 
 function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
   return (
-    <div className="mb-4 last:mb-0">
-      <h3 className="text-xs font-semibold text-accent mb-2">{title}</h3>
-      <div className="flex flex-wrap gap-1.5">
+    <div className="mb-3 sm:mb-4 last:mb-0">
+      <h3 className="text-[10px] sm:text-xs font-semibold text-accent mb-1.5 sm:mb-2">{title}</h3>
+      <div className="flex flex-wrap gap-1 sm:gap-1.5">
         {skills.map((skill) => (
           <span 
             key={skill}
-            className="text-[11px] px-2.5 py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
+            className="text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
           >
             {skill}
           </span>
@@ -62,37 +62,37 @@ export default function Resume() {
   const PageIcon = getPageIcon('/resume');
   
   return (
-    <div className="space-y-6 pb-8">
+    <div className="space-y-4 sm:space-y-6 pb-8">
       {/* Header */}
-      <h1 className="text-2xl font-bold text-white flex items-center gap-3">
-        {PageIcon && <PageIcon className="text-accent" size={28} />}
+      <h1 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2 sm:gap-3">
+        {PageIcon && <PageIcon className="text-accent" size={24} />}
         Resume
       </h1>
 
-      <div className="grid grid-cols-2 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8">
         {/* Work Experience */}
         <div>
-          <h2 className="text-lg font-bold text-white mb-4">Work Experience</h2>
+          <h2 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Work Experience</h2>
           
-          <div className="relative pl-5">
+          <div className="relative pl-4 sm:pl-5">
             {/* Timeline line */}
             <div className="absolute left-[5px] top-[6px] bottom-0 w-[2px] bg-gray-700" />
             
             {/* Timeline items */}
-            <div className="space-y-6">
+            <div className="space-y-4 sm:space-y-6">
               {experiences.map((exp, index) => (
                 <div key={index} className="relative">
                   {/* Timeline dot */}
-                  <div className="absolute -left-5 top-[5px] w-[12px] h-[12px] rounded-full bg-[#1e1e1e] border-2 border-accent" />
+                  <div className="absolute -left-4 sm:-left-5 top-[5px] w-[12px] h-[12px] rounded-full bg-[#1e1e1e] border-2 border-accent" />
                   
-                  <div className="text-xs text-accent mb-0.5">{exp.period}</div>
-                  <h3 className="font-semibold text-white text-sm">{exp.title}</h3>
-                  <div className="text-xs text-gray-400 mb-2">{exp.company} • {exp.location}</div>
+                  <div className="text-[10px] sm:text-xs text-accent mb-0.5">{exp.period}</div>
+                  <h3 className="font-semibold text-white text-xs sm:text-sm">{exp.title}</h3>
+                  <div className="text-[10px] sm:text-xs text-gray-400 mb-2">{exp.company} • {exp.location}</div>
                   
                   {/* Highlights */}
-                  <ul className="space-y-1.5 mb-2">
+                  <ul className="space-y-1 sm:space-y-1.5 mb-2">
                     {exp.highlights.map((highlight, i) => (
-                      <li key={i} className="text-gray-400 text-xs flex gap-1.5 leading-relaxed">
+                      <li key={i} className="text-gray-400 text-[10px] sm:text-xs flex gap-1.5 leading-relaxed">
                         <span className="text-accent">•</span>
                         <span>{highlight}</span>
                       </li>
@@ -100,9 +100,9 @@ export default function Resume() {
                   </ul>
                   
                   {/* Tech Stack */}
-                  <div className="flex flex-wrap gap-1.5">
+                  <div className="flex flex-wrap gap-1 sm:gap-1.5">
                     {exp.stack.map((tech) => (
-                      <span key={tech} className="text-[10px] px-2 py-0.5 rounded bg-accent/20 text-accent-light">
+                      <span key={tech} className="text-[9px] sm:text-[10px] px-1.5 sm:px-2 py-0.5 rounded bg-accent/20 text-accent-light">
                         {tech}
                       </span>
                     ))}
@@ -115,8 +115,8 @@ export default function Resume() {
 
         {/* Skills */}
         <div>
-          <h2 className="text-lg font-bold text-white mb-4">Skills</h2>
-          <div className="glass-card p-5">
+          <h2 className="text-base sm:text-lg font-bold text-white mb-3 sm:mb-4">Skills</h2>
+          <div className="glass-card p-3 sm:p-4 md:p-5">
             {Object.entries(skills).map(([category, skillList]) => (
               <SkillCategory key={category} title={category} skills={skillList} />
             ))}

@@ -24,6 +24,31 @@ export default function Navigation() {
     });
   }, [router]);
 
+  // Scroll to main content on mobile after navigation (except home page)
+  useEffect(() => {
+    // Only scroll on mobile (when main content is below profile card)
+    if (window.innerWidth < 1024) {
+      if (pathname === '/') {
+        // On home page, scroll to top to show profile card
+        const scrollToTop = () => {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+        const timer = setTimeout(scrollToTop, 100);
+        return () => clearTimeout(timer);
+      } else {
+        // On other pages, scroll to main content
+        const scrollToMain = () => {
+          const mainContent = document.getElementById('main-content');
+          if (mainContent) {
+            mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          }
+        };
+        const timer = setTimeout(scrollToMain, 150);
+        return () => clearTimeout(timer);
+      }
+    }
+  }, [pathname]);
+
   const goToPrev = () => {
     const prevIndex = currentIndex > 0 ? currentIndex - 1 : navItems.length - 1;
     router.push(navItems[prevIndex].href);
@@ -34,87 +59,141 @@ export default function Navigation() {
     router.push(navItems[nextIndex].href);
   };
 
-  return (
-    <div className="flex flex-col h-full justify-between">
-      {/* Navigation Icons */}
-      <nav className="glass-nav py-4 px-2 flex flex-col gap-2">
-        {navItems.map((item) => {
-          const isActive = pathname === item.href;
-          const Icon = item.icon;
-          
-          return (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`
-                group relative p-3 rounded-full transition-smooth
-                ${isActive 
-                  ? 'bg-white/10 text-accent-light' 
-                  : 'text-gray-400 hover:text-white hover:bg-white/5'
-                }
-              `}
-            >
-              <Icon size={22} />
-              
-              {/* Tooltip */}
-              <span className="
-                absolute right-full mr-3 top-1/2 -translate-y-1/2
-                px-3 py-1 rounded-lg bg-gray-800 text-white text-sm
-                opacity-0 group-hover:opacity-100 transition-opacity
-                pointer-events-none whitespace-nowrap
-              ">
-                {item.label}
-              </span>
-            </Link>
-          );
-        })}
-      </nav>
+  const handleMobileNavClick = (href: string, e: React.MouseEvent) => {
+    e.preventDefault();
+    if (pathname !== href) {
+      router.push(href);
+    } else {
+      // If already on the page, scroll appropriately
+      if (href === '/') {
+        // On home page, scroll to top to show profile card
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      } else {
+        // On other pages, scroll to main content
+        const mainContent = document.getElementById('main-content');
+        if (mainContent) {
+          mainContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }
+    }
+  };
 
-      {/* Arrow Navigation */}
-      <div className="glass-nav py-3 px-2 flex flex-col gap-1">
-        <GlareHover
-          width="auto"
-          height="auto"
-          background="transparent"
-          borderRadius="9999px"
-          borderColor="transparent"
-          glareColor="#ffffff"
-          glareOpacity={0.3}
-          glareAngle={-30}
-          glareSize={300}
-          transitionDuration={800}
-          playOnce={false}
-        >
-          <button
-            onClick={goToNext}
-            className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
-            title="Next"
+  return (
+    <>
+      {/* Desktop Navigation - Vertical Sidebar */}
+      <div className="hidden lg:flex flex-col h-full justify-between">
+        {/* Navigation Icons */}
+        <nav className="glass-nav py-4 px-2 flex flex-col gap-2">
+          {navItems.map((item) => {
+            const isActive = pathname === item.href;
+            const Icon = item.icon;
+            
+            return (
+              <Link
+                key={item.href}
+                href={item.href}
+                className={`
+                  group relative p-3 rounded-full transition-smooth
+                  ${isActive 
+                    ? 'bg-white/10 text-accent-light' 
+                    : 'text-gray-400 hover:text-white hover:bg-white/5'
+                  }
+                `}
+              >
+                <Icon size={22} />
+                
+                {/* Tooltip - Hidden on touch devices */}
+                <span className="
+                  hidden lg:block absolute right-full mr-3 top-1/2 -translate-y-1/2
+                  px-3 py-1 rounded-lg bg-gray-800 text-white text-sm
+                  opacity-0 group-hover:opacity-100 transition-opacity
+                  pointer-events-none whitespace-nowrap
+                ">
+                  {item.label}
+                </span>
+              </Link>
+            );
+          })}
+        </nav>
+
+        {/* Arrow Navigation */}
+        <div className="glass-nav py-3 px-2 flex flex-col gap-1">
+          <GlareHover
+            width="auto"
+            height="auto"
+            background="transparent"
+            borderRadius="9999px"
+            borderColor="transparent"
+            glareColor="#ffffff"
+            glareOpacity={0.3}
+            glareAngle={-30}
+            glareSize={300}
+            transitionDuration={800}
+            playOnce={false}
           >
-            <HiChevronRight size={22} />
-          </button>
-        </GlareHover>
-        <GlareHover
-          width="auto"
-          height="auto"
-          background="transparent"
-          borderRadius="9999px"
-          borderColor="transparent"
-          glareColor="#ffffff"
-          glareOpacity={0.3}
-          glareAngle={-30}
-          glareSize={300}
-          transitionDuration={800}
-          playOnce={false}
-        >
-          <button
-            onClick={goToPrev}
-            className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
-            title="Previous"
+            <button
+              onClick={goToNext}
+              className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
+              title="Next"
+            >
+              <HiChevronRight size={22} />
+            </button>
+          </GlareHover>
+          <GlareHover
+            width="auto"
+            height="auto"
+            background="transparent"
+            borderRadius="9999px"
+            borderColor="transparent"
+            glareColor="#ffffff"
+            glareOpacity={0.3}
+            glareAngle={-30}
+            glareSize={300}
+            transitionDuration={800}
+            playOnce={false}
           >
-            <HiChevronLeft size={22} />
-          </button>
-        </GlareHover>
+            <button
+              onClick={goToPrev}
+              className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
+              title="Previous"
+            >
+              <HiChevronLeft size={22} />
+            </button>
+          </GlareHover>
+        </div>
       </div>
-    </div>
+
+      {/* Mobile Navigation - Bottom Bar */}
+      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
+        <div className="glass-nav mx-4 mb-6 px-2 py-2 flex items-center justify-center gap-1 pointer-events-auto">
+          {/* Navigation Icons - Horizontal */}
+          <nav className="flex items-center gap-1 justify-center">
+            {navItems.map((item) => {
+              const isActive = pathname === item.href;
+              const Icon = item.icon;
+              
+              return (
+                <Link
+                  key={item.href}
+                  href={item.href}
+                  onClick={(e) => handleMobileNavClick(item.href, e)}
+                  className={`
+                    p-3 rounded-full transition-smooth touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center
+                    ${isActive 
+                      ? 'bg-white/10 text-accent-light' 
+                      : 'text-gray-400 active:text-white active:bg-white/5'
+                    }
+                  `}
+                  aria-label={item.label}
+                  title={item.label}
+                >
+                  <Icon size={20} />
+                </Link>
+              );
+            })}
+          </nav>
+        </div>
+      </div>
+    </>
   );
 }
