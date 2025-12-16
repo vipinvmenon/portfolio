@@ -165,9 +165,9 @@ export default function Navigation() {
 
       {/* Mobile Navigation - Bottom Bar */}
       <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
-        <div className="glass-nav mx-4 mb-6 px-2 py-2 flex items-center justify-center gap-1 pointer-events-auto">
+        <div className="fluid-nav mx-4 mb-3 px-2 py-2 flex items-center justify-center gap-2 pointer-events-auto">
           {/* Navigation Icons - Horizontal */}
-          <nav className="flex items-center gap-1 justify-center">
+          <nav className="flex items-center gap-2 justify-center">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
@@ -178,7 +178,7 @@ export default function Navigation() {
                   href={item.href}
                   onClick={(e) => handleMobileNavClick(item.href, e)}
                   className={`
-                    p-3 rounded-full transition-smooth touch-manipulation min-w-[44px] min-h-[44px] flex items-center justify-center
+                    p-3 rounded-full transition-smooth touch-manipulation min-w-[52px] min-h-[52px] flex items-center justify-center
                     ${isActive 
                       ? 'bg-white/10 text-accent-light' 
                       : 'text-gray-400 active:text-white active:bg-white/5'
@@ -187,7 +187,7 @@ export default function Navigation() {
                   aria-label={item.label}
                   title={item.label}
                 >
-                  <Icon size={20} />
+                  <Icon size={22} />
                 </Link>
               );
             })}
