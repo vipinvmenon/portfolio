@@ -43,14 +43,14 @@ export default function ProfileCard() {
   return (
     <div
       ref={cardRef}
-      className="glass-card p-4 sm:p-6 md:p-8 flex flex-col items-center w-full md:w-[280px] lg:w-[320px] lg:h-full transition-transform duration-300 ease-out"
+      className="glass-card p-4 sm:p-6 md:p-8 flex flex-col items-center w-full md:w-[min(280px,22vw)] lg:w-[min(320px,25vw)] lg:h-full transition-transform duration-300 ease-out"
       style={{
         transform: `perspective(1000px) rotateX(${tilt.x}deg) rotateY(${tilt.y}deg)`,
         transformStyle: 'preserve-3d',
       }}
     >
       {/* Profile Photo */}
-      <div className="relative w-32 h-32 sm:w-40 sm:h-40 mb-4 sm:mb-6">
+      <div className="relative w-[clamp(8rem,20vw,10rem)] h-[clamp(8rem,20vw,10rem)] mb-4 sm:mb-6">
         <div className="absolute inset-0 rounded-full border-2 border-dashed border-gray-500" />
         <div className="absolute inset-2 rounded-full overflow-hidden">
           <Image
@@ -77,7 +77,7 @@ export default function ProfileCard() {
           className="text-gray-400 hover:text-white active:text-white transition-smooth p-2 -m-2 touch-manipulation"
           aria-label="GitHub"
         >
-          <FaGithub size={20} />
+          <FaGithub size="1.25em" />
         </a>
         <a
           href="https://www.linkedin.com/in/vipin-menon-v/"
@@ -86,7 +86,7 @@ export default function ProfileCard() {
           className="text-gray-400 hover:text-white active:text-white transition-smooth p-2 -m-2 touch-manipulation"
           aria-label="LinkedIn"
         >
-          <FaLinkedin size={20} />
+          <FaLinkedin size="1.25em" />
         </a>
         <a
           href="https://x.com/_vipinmenon"
@@ -95,7 +95,7 @@ export default function ProfileCard() {
           className="text-gray-400 hover:text-white active:text-white transition-smooth p-2 -m-2 touch-manipulation"
           aria-label="X (Twitter)"
         >
-          <FaXTwitter size={20} />
+          <FaXTwitter size="1.25em" />
         </a>
       </div>
 

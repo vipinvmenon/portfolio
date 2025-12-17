@@ -10,7 +10,11 @@ import {
 import GlareHover from './GlareHover';
 import { navItems } from '@/utils/navigation';
 
-export default function Navigation() {
+interface NavigationProps {
+  variant?: 'desktop' | 'mobile';
+}
+
+export default function Navigation({ variant }: NavigationProps = { variant: undefined }) {
   const pathname = usePathname();
   const router = useRouter();
 
@@ -81,6 +85,7 @@ export default function Navigation() {
   return (
     <>
       {/* Desktop Navigation - Vertical Sidebar */}
+      {variant !== 'mobile' && (
       <div className="hidden lg:flex flex-col h-full justify-between">
         {/* Navigation Icons */}
         <nav className="glass-nav py-4 px-2 flex flex-col gap-2">
@@ -100,7 +105,7 @@ export default function Navigation() {
                   }
                 `}
               >
-                <Icon size={22} />
+                <Icon size="1.375em" />
                 
                 {/* Tooltip - Hidden on touch devices */}
                 <span className="
@@ -136,7 +141,7 @@ export default function Navigation() {
               className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
               title="Next"
             >
-              <HiChevronRight size={22} />
+              <HiChevronRight size="1.375em" />
             </button>
           </GlareHover>
           <GlareHover
@@ -157,17 +162,19 @@ export default function Navigation() {
               className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
               title="Previous"
             >
-              <HiChevronLeft size={22} />
+              <HiChevronLeft size="1.375em" />
             </button>
           </GlareHover>
         </div>
       </div>
+      )}
 
       {/* Mobile Navigation - Bottom Bar */}
-      <div className="lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none">
-        <div className="fluid-nav mx-4 mb-3 py-1.5 flex items-center justify-between px-2 pointer-events-auto">
+      {variant !== 'desktop' && (
+      <div className="mobile-nav-container lg:hidden fixed bottom-0 left-0 right-0 z-50 pointer-events-none w-full">
+        <div className="fluid-nav mx-4 mb-3 py-1.5 flex items-center justify-between px-2 sm:px-3 pointer-events-auto">
           {/* Navigation Icons - Horizontal */}
-          <nav className="flex items-center justify-between w-full gap-1">
+          <nav className="flex items-center justify-between w-full gap-0.5 sm:gap-1">
             {navItems.map((item) => {
               const isActive = pathname === item.href;
               const Icon = item.icon;
@@ -178,7 +185,7 @@ export default function Navigation() {
                   href={item.href}
                   onClick={(e) => handleMobileNavClick(item.href, e)}
                   className={`
-                    p-3 rounded-full transition-smooth touch-manipulation w-[52px] h-[52px] flex items-center justify-center flex-shrink-0
+                    p-3 rounded-full transition-smooth touch-manipulation w-[clamp(3rem,8vw,3.25rem)] h-[clamp(3rem,8vw,3.25rem)] flex items-center justify-center flex-shrink-0
                     ${isActive 
                       ? 'bg-white/10 text-accent-light' 
                       : 'text-gray-400 active:text-white active:bg-white/5'
@@ -187,13 +194,14 @@ export default function Navigation() {
                   aria-label={item.label}
                   title={item.label}
                 >
-                  <Icon size={22} />
+                  <Icon size="1.375em" />
                 </Link>
               );
             })}
           </nav>
         </div>
       </div>
+      )}
     </>
   );
 }

@@ -52,24 +52,24 @@ export default function Home() {
           const Icon = stat.icon;
           return (
             <div key={index} className="glass-card p-2 sm:p-3 flex flex-col items-center text-center">
-              <Icon className="text-accent mb-1" size={16} />
+              <Icon className="text-accent mb-1" size="1em" />
               <div className="text-xl sm:text-2xl font-bold text-white mb-0.5">{stat.value}</div>
-              <div className="text-gray-400 text-[10px] sm:text-[10px]">{stat.label}</div>
+              <div className="text-gray-400 text-[10px]">{stat.label}</div>
             </div>
           );
         })}
       </div>
 
       {/* Tech Stack & Focus Areas */}
-      <div className="glass-card p-2 sm:p-3 md:p-4 flex flex-col flex-1 min-h-0">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 h-full">
+      <div className="glass-card p-2 sm:p-3 md:p-4 flex flex-col flex-1 min-h-0 overflow-y-auto custom-scrollbar">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-3 sm:gap-4 min-w-0">
           {/* Tech Stack */}
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2 mb-2 sm:mb-3">
-              <HiLightningBolt className="text-accent" size={14} />
+          <div className="flex flex-col min-w-0">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3 flex-shrink-0">
+              <HiLightningBolt className="text-accent" size="0.875em" />
               <h2 className="font-semibold text-white text-xs">Tech Stack</h2>
             </div>
-            <div className="flex flex-wrap gap-1.5 sm:gap-2 flex-1 content-start">
+            <div className="flex flex-wrap gap-1.5 sm:gap-2 content-start min-w-0">
               {techStack.map((tech, index) => (
                 <span
                   key={index}
@@ -81,25 +81,25 @@ export default function Home() {
             </div>
             <Link
               href="/about"
-              className="mt-2 sm:mt-3 text-accent text-[10px] sm:text-xs hover:text-accent-light transition-smooth inline-flex items-center gap-1"
+              className="mt-2 sm:mt-3 text-accent text-[10px] sm:text-xs hover:text-accent-light transition-smooth inline-flex items-center gap-1 flex-shrink-0"
             >
               Learn more →
             </Link>
           </div>
 
           {/* Focus Areas */}
-          <div className="flex flex-col">
-            <div className="flex items-center gap-2 mb-2 sm:mb-3">
-              <HiSparkles className="text-accent" size={14} />
+          <div className="flex flex-col min-w-0">
+            <div className="flex items-center gap-2 mb-2 sm:mb-3 flex-shrink-0">
+              <HiSparkles className="text-accent" size="0.875em" />
               <h2 className="font-semibold text-white text-xs">Focus Areas</h2>
             </div>
             <div className="space-y-1.5 sm:space-y-2">
               {focusAreas.map((area, index) => {
                 const Icon = area.icon;
                 return (
-                  <div key={index} className="flex items-center gap-2 p-1.5 sm:p-2 rounded-lg bg-white/5">
-                    <Icon className="text-accent" size={12} />
-                    <span className="text-white text-[10px] sm:text-xs">{area.label}</span>
+                  <div key={index} className="flex items-center gap-2 p-1.5 sm:p-2 rounded-lg bg-white/5 min-w-0 flex-shrink-0">
+                    <Icon className="text-accent flex-shrink-0" size="0.75em" />
+                    <span className="text-white text-[10px] sm:text-xs break-words">{area.label}</span>
                   </div>
                 );
               })}

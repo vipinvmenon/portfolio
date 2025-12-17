@@ -43,12 +43,12 @@ const skills = {
 function SkillCategory({ title, skills }: { title: string; skills: string[] }) {
   return (
     <div className="mb-3 sm:mb-4 last:mb-0">
-      <h3 className="text-[10px] sm:text-xs font-semibold text-accent mb-1.5 sm:mb-2">{title}</h3>
+      <h3 className="text-[0.625rem] sm:text-xs font-semibold text-accent mb-1.5 sm:mb-2">{title}</h3>
       <div className="flex flex-wrap gap-1 sm:gap-1.5">
         {skills.map((skill) => (
           <span 
             key={skill}
-            className="text-[10px] sm:text-[11px] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
+            className="text-[0.625rem] sm:text-[0.6875rem] px-2 sm:px-2.5 py-0.5 sm:py-1 rounded-full bg-white/5 text-gray-300 border border-white/10"
           >
             {skill}
           </span>
@@ -65,7 +65,7 @@ export default function Resume() {
     <div className="space-y-4 sm:space-y-6 pb-8">
       {/* Header */}
       <h1 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2 sm:gap-3">
-        {PageIcon && <PageIcon className="text-accent" size={24} />}
+        {PageIcon && <PageIcon className="text-accent" size="1.5em" />}
         Resume
       </h1>
 

@@ -65,7 +65,7 @@ export default function Contact() {
     <div className="space-y-4 sm:space-y-6 h-full flex flex-col">
       {/* Header */}
       <h1 className="text-2xl sm:text-3xl font-bold text-white flex items-center gap-2 sm:gap-3">
-        {PageIcon && <PageIcon className="text-accent" size={28} />}
+        {PageIcon && <PageIcon className="text-accent" size="1.75em" />}
         Contact
       </h1>
 
@@ -82,7 +82,7 @@ export default function Contact() {
                 rel="noopener noreferrer"
                 className="glass-card p-3 sm:p-4 flex flex-col items-center justify-center hover-glow transition-smooth touch-manipulation"
               >
-                <Icon className="text-accent mb-1 sm:mb-2" size={24} />
+                <Icon className="text-accent mb-1 sm:mb-2" size="1.5em" />
                 <span className="text-accent text-xs sm:text-sm text-center break-all">{link.label}</span>
               </a>
             );

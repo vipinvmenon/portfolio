@@ -41,7 +41,7 @@ export default function Projects() {
     <div className="space-y-3 sm:space-y-4">
       {/* Header */}
       <h1 className="text-xl sm:text-2xl font-bold text-white flex items-center gap-2 sm:gap-3">
-        {PageIcon && <PageIcon className="text-accent" size={24} />}
+        {PageIcon && <PageIcon className="text-accent" size="1.5em" />}
         Projects
       </h1>
 
@@ -78,7 +78,7 @@ export default function Projects() {
                     className="p-2.5 sm:p-3 rounded-full bg-white/20 hover:bg-white/30 active:bg-white/30 border border-white/30 hover:border-white/50 transition-smooth shadow-lg hover:shadow-xl hover:scale-110 touch-manipulation"
                     aria-label={`View ${project.title} on GitHub`}
                   >
-                    <FaGithub size={18} className="text-white" />
+                    <FaGithub size="1.125em" className="text-white" />
                   </a>
                 )}
               </div>
@@ -128,7 +128,7 @@ export default function Projects() {
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 sm:py-2 border border-gray-500 rounded-full text-white text-xs sm:text-sm hover:bg-white/10 active:bg-white/10 transition-smooth touch-manipulation"
           >
-            <FaGithub size={14} />
+            <FaGithub size="0.875em" />
             View More on GitHub
           </a>
         </GlareHover>

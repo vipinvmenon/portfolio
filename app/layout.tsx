@@ -56,14 +56,14 @@ export default function RootLayout({
         </div>
 
         <div className="min-h-screen flex items-center justify-center p-4 md:p-6 lg:p-8 relative z-10 py-4 md:py-6 lg:py-8 pb-24 lg:pb-8">
-          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 items-stretch max-w-7xl w-full min-h-[600px] lg:h-[700px]">
+          <div className="flex flex-col lg:flex-row gap-4 md:gap-6 items-stretch max-w-7xl w-full min-h-[min(600px,85vh)] lg:h-[min(700px,85vh)]">
             {/* Profile Sidebar */}
             <aside className="flex-shrink-0 w-full md:w-auto lg:h-full">
               <ProfileCard />
             </aside>
 
             {/* Main Content - Glassmorphic Panel */}
-            <main id="main-content" className="glass flex-grow lg:h-full overflow-hidden lg:pr-2 scroll-container min-h-[400px] md:min-h-[500px]">
+            <main id="main-content" className="glass flex-grow lg:h-full overflow-hidden lg:pr-2 scroll-container min-h-[min(400px,60vh)] md:min-h-[min(500px,70vh)]">
               <div className="h-full overflow-y-auto p-4 sm:p-6 md:p-8 lg:pr-6 pb-12 custom-scrollbar">
                 <PageTransition>{children}</PageTransition>
               </div>
@@ -71,13 +71,13 @@ export default function RootLayout({
 
             {/* Navigation - Desktop only */}
             <aside className="hidden lg:flex flex-shrink-0 h-full">
-              <Navigation />
+              <Navigation variant="desktop" />
             </aside>
           </div>
         </div>
 
         {/* Mobile Navigation - Always rendered, fixed at bottom */}
-        <Navigation />
+        <Navigation variant="mobile" />
       </body>
     </html>
   );

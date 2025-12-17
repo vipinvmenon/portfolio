@@ -8,7 +8,7 @@ export default function About() {
     <div className="flex flex-col h-full">
       {/* Header */}
       <h1 className="text-xl sm:text-2xl font-bold text-white mb-3 sm:mb-5 flex items-center gap-2 sm:gap-3">
-        {PageIcon && <PageIcon className="text-accent" size={24} />}
+        {PageIcon && <PageIcon className="text-accent" size="1.5em" />}
         About <span className="text-accent">Me</span>
       </h1>
 
@@ -34,7 +34,7 @@ export default function About() {
         {/* Current Role */}
         <div className="glass-card p-3 sm:p-4 md:p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <HiBriefcase className="text-accent" size={14} />
+            <HiBriefcase className="text-accent" size="0.875em" />
             <h3 className="font-semibold text-white text-xs sm:text-sm">Current Role</h3>
           </div>
           <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
@@ -46,7 +46,7 @@ export default function About() {
         {/* Programming */}
         <div className="glass-card p-3 sm:p-4 md:p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <HiCode className="text-accent" size={14} />
+            <HiCode className="text-accent" size="0.875em" />
             <h3 className="font-semibold text-white text-xs sm:text-sm">Programming</h3>
           </div>
           <p className="text-gray-400 text-xs sm:text-sm leading-relaxed">
@@ -59,22 +59,22 @@ export default function About() {
         {/* Languages */}
         <div className="glass-card p-3 sm:p-4 md:p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <HiGlobe className="text-accent" size={14} />
+            <HiGlobe className="text-accent" size="0.875em" />
             <h3 className="font-semibold text-white text-xs sm:text-sm">Languages</h3>
           </div>
           <ul className="text-xs sm:text-sm space-y-1.5 sm:space-y-2">
             <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+              <span className="w-[clamp(0.375rem,0.5vw,0.5rem)] h-[clamp(0.375rem,0.5vw,0.5rem)] rounded-full bg-accent"></span>
               <span className="text-white">English</span>
               <span className="text-gray-500">— Fluent</span>
             </li>
             <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+              <span className="w-[clamp(0.375rem,0.5vw,0.5rem)] h-[clamp(0.375rem,0.5vw,0.5rem)] rounded-full bg-accent"></span>
               <span className="text-white">Malayalam</span>
               <span className="text-gray-500">— Native</span>
             </li>
             <li className="flex items-center gap-2">
-              <span className="w-1.5 h-1.5 rounded-full bg-accent"></span>
+              <span className="w-[clamp(0.375rem,0.5vw,0.5rem)] h-[clamp(0.375rem,0.5vw,0.5rem)] rounded-full bg-accent"></span>
               <span className="text-white">Tamil</span>
               <span className="text-gray-500">— Conversational</span>
             </li>
@@ -84,7 +84,7 @@ export default function About() {
         {/* Personal Info */}
         <div className="glass-card p-3 sm:p-4 md:p-5 flex flex-col">
           <div className="flex items-center gap-2 mb-2 sm:mb-3">
-            <HiUser className="text-accent" size={14} />
+            <HiUser className="text-accent" size="0.875em" />
             <h3 className="font-semibold text-white text-xs sm:text-sm">Personal Info</h3>
           </div>
           <div className="space-y-2 sm:space-y-3 text-xs sm:text-sm">
