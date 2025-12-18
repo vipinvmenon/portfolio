@@ -7,7 +7,6 @@ import {
   HiChevronRight,
   HiChevronLeft
 } from 'react-icons/hi';
-import GlareHover from './GlareHover';
 import { navItems } from '@/utils/navigation';
 
 interface NavigationProps {
@@ -123,48 +122,20 @@ export default function Navigation({ variant }: NavigationProps = { variant: und
 
         {/* Arrow Navigation */}
         <div className="glass-nav py-3 px-2 flex flex-col gap-1">
-          <GlareHover
-            width="auto"
-            height="auto"
-            background="transparent"
-            borderRadius="9999px"
-            borderColor="transparent"
-            glareColor="#ffffff"
-            glareOpacity={0.3}
-            glareAngle={-30}
-            glareSize={300}
-            transitionDuration={800}
-            playOnce={false}
+          <button
+            onClick={goToNext}
+            className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth cursor-pointer"
+            title="Next"
           >
-            <button
-              onClick={goToNext}
-              className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
-              title="Next"
-            >
-              <HiChevronRight size="1.375em" />
-            </button>
-          </GlareHover>
-          <GlareHover
-            width="auto"
-            height="auto"
-            background="transparent"
-            borderRadius="9999px"
-            borderColor="transparent"
-            glareColor="#ffffff"
-            glareOpacity={0.3}
-            glareAngle={-30}
-            glareSize={300}
-            transitionDuration={800}
-            playOnce={false}
+            <HiChevronRight size="1.375em" />
+          </button>
+          <button
+            onClick={goToPrev}
+            className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth cursor-pointer"
+            title="Previous"
           >
-            <button
-              onClick={goToPrev}
-              className="p-3 rounded-full text-gray-400 hover:text-white hover:bg-white/5 transition-smooth"
-              title="Previous"
-            >
-              <HiChevronLeft size="1.375em" />
-            </button>
-          </GlareHover>
+            <HiChevronLeft size="1.375em" />
+          </button>
         </div>
       </div>
       )}

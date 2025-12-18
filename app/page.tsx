@@ -30,7 +30,7 @@ export default function Home() {
         <div className="relative mb-2 sm:mb-3 scale-50 sm:scale-75 lg:scale-75">
           <CircularText
             text=" UI ENGINEER * PRODUCT DEVELOPER *"
-            onHover="speedUp"
+            onHover={null}
             spinDuration={20}
           />
         </div>
